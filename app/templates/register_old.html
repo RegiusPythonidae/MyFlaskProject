@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+Flask - Register
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <form method="post" enctype="multipart/form-data" class="w-50 position-absolute top-50 start-50 translate-middle">
+        {{ form.hidden_tag() }}
+        <div class="input-group mb-3">
+            {{ form.username(class="form-control", placeholder=form.username.label.text, value="John") }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.password(class="form-control", placeholder=form.password.label.text) }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.repeat_password(class="form-control", placeholder=form.repeat_password.label.text) }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.birthday(class="form-select") }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.gender(class="form-select") }}
+        </div>
+        <div class="form-check input-group mb-3">
+            {{ form.programming_language }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.about_you(class="form-control") }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.profile_picture }}
+        </div>
+        {{ form.register(class="btn btn-success") }}
+    </form>
+</div>
+{% endblock %}

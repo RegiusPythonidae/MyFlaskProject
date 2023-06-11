@@ -1,0 +1,15 @@
+{% macro create_product_card(item) %}
+<div class="card" style="width: 18rem;">
+    <img src="https://liftlearning.com/wp-content/uploads/2020/09/default-image.png" class="card-img-top"
+         alt="...">
+    <div class="card-body">
+        <h5 class="card-title"> {{item.manufacturer}} {{ item.name }}</h5>
+        <p class="card-text">{{ item.price }} L</p>
+        <a href="#" class="btn btn-primary">Details</a>
+        {% if current_user.is_authenticated and current_user.role == "Admin" %}
+            <a href="/edit_product/{{ item.id }}" class="btn btn-warning">Edit</a>
+            <a href="/delete_product/{{ item.id }}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}

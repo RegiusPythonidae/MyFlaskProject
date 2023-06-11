@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from "macros.html" import create_product_card with context %}
+
+{% block title %}
+Flask Webpage
+{% endblock %}
+
+{% block body %}
+<div class="container align-middle">
+    <h3 class="text-center"> Top Items </h3>
+    <div class="row">
+        {% for product in products %}
+        <div class="col">
+            {{ create_product_card(product) }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <h3 class="text-center mt-5"> Discounted Items </h3>
+    <div class="row">
+        {% for product in discounts %}
+        <div class="col">
+            {{ create_product_card(product) }}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

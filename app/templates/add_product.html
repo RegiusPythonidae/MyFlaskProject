@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Flask - Add Product
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <form method="post" enctype="multipart/form-data" class="w-50 position-absolute top-50 start-50 translate-middle">
+        {{ form.hidden_tag() }}
+        <div class="input-group mb-3">
+            {{ form.product_type(class="form-select") }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.manufacturer(class="form-control", placeholder=form.manufacturer.label.text) }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.name(class="form-control", placeholder=form.name.label.text) }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.price(class="form-control") }}
+        </div>
+
+        {{ form.submit(class="btn btn-success") }}
+    </form>
+</div>
+{% endblock %}
